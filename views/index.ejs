@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+    <div class="container">
+        <h1>JOKE ME</h1>
+        <form method="post">
+            <input class="btn-joke" type="submit" value="JOKE" formaction="/joke"/>
+        </form>
+
+        <% if (locals.category) { %>
+        <div class="container-joke">
+            <p>Category: <%= category %></p>
+            <div class="wraper-joke">
+                <div class="header-title-question">
+                    <p>Question:</p>
+                </div>
+                <div class="body-question">
+                    <% if (locals.question) { %>
+                        <p><%= question %></p>
+                    <% } else { %>
+                        <p>"user didn't input a question"</p>
+                    <% } %>
+                </div>
+                <div class="header-title-answer">
+                    <p>Answer:</p>
+                </div>
+                <div class="body-answer">
+                    <% if (locals.answer) { %>
+                        <p><%= answer %></p>
+                    <% } else { %>
+                        <p>"user didn't input a answer"</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+<%- include('partials/footer') %>
